@@ -57,6 +57,7 @@ class UtilisateurController extends Controller
         $list = Article::join('publication', 'article.id', '=', 'publication.idarticle')
                ->where('publication.etat', '=', 1)
                ->orderBy('publication.publish_at', 'desc')
+               ->select('article.*')
                ->simplePaginate($limit);
         return view('Home',[
             'liste_article' => $list,

@@ -91,7 +91,9 @@
                                       <h5 class="card-title">{{ $article->titre }}</h5>
                                       <p class="card-text">{{ $article->resume}}</p>
                                       <p class="cart-text"><small class="text-muted">Publié par : {{ $article->getAuteur()->nom }} {{ $article->getAuteur()->prenom }}</small></p>
+                                      @if($article->getPublication()->publish_at !== null) 
                                       <p class="card-text"> <small class="text-muted">Publié le : {{ $article->getPublication()->publish_at }}</small></p>
+                                      @endif
                                       @if($article->getPublication()->update_at !== null)
                                       <p class="card-text"><small class="text-muted">Modifié le : {{ $article->getPublication()->update_at }}</small></p>
                                       @endif
